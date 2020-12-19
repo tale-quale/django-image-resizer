@@ -1,0 +1,17 @@
+{% extends 'imgresizer/base.html' %}
+
+{% block top_path %}
+    <a href="{% url 'index' %}">Назад к списку</a>
+{% endblock %}
+
+{% block title %}Изменение размера изображения{% endblock %}
+
+{% block content %}
+    <h1>{{ img_obj.name }}</h1>
+    <form method="POST"> {% comment %} при enctype='text/plain' возникает ошибка проверки csrf-токена ¯\_(ツ)_/¯ {% endcomment %}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+    <p><img src="data:image;base64, {{ img_obj.imgblob }}"></p>
+{% endblock %}

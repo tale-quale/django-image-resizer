@@ -1,0 +1,18 @@
+{% extends 'imgresizer/base.html' %}
+
+{% block top_path %}{% endblock %} {# Ссылка на главную не нужна - это она и есть #}
+
+{% block title %}Список изображений{% endblock %}
+
+{% block content %}
+    <h1>Список изображений</h1>
+    {% for img_obj in images %}
+        <a href="{% url 'resize' img_obj.id %}">{{ img_obj }}</a>
+        {% comment %}<img src="data:image;base64, {{ img_obj.imgblob }}">{% endcomment %}
+        <br>
+    {% empty %}
+        <span>Нет доступных изображений</span>
+        <br>
+    {% endfor %}
+    <p><a href="{% url 'upload' %}">Добавить изображение</a></p>
+{% endblock %}

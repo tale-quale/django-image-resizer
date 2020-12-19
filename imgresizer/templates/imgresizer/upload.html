@@ -1,0 +1,16 @@
+{% extends 'imgresizer/base.html' %}
+
+{% block top_path %}
+    <a href="{% url 'index' %}">Назад к списку</a>
+{% endblock %}
+
+{% block title %}Загрузка изображения{% endblock %}
+
+{% block content %}
+    <h1>Новое изображение</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Загрузить">
+    </form>
+{% endblock %}
