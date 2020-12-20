@@ -23,7 +23,7 @@ def is_url_exist(url):
     try:
         response = requests.get(url) # при несуществующем домене возникает ошибка
     except:
-        raise ValidationError('Ссылка не существует')
+        raise ValidationError(c'Ссылка не существует')
     if not response.status_code == 200: # домен существует, но не найден сам ресурс
         raise ValidationError('Ссылка не существует')
     if url != response.url: # редирект?
