@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-#from django.core.exceptions import ObjectDoesNotExist
 from .forms import UploadForm, ResizeForm
 from .models import Images
 import base64
