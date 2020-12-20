@@ -70,3 +70,6 @@ class SupportingFunctionsTests(TestCase):
         imgblob = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P//PwAGBAL/VJiKjgAAAABJRU5ErkJggg=='
         obj = Images.objects.create(name='image.png', imgblob=imgblob)
         self.assertIsInstance(resize_image(obj, 100, 100), Images)
+
+class UploadFormTest(TestCase):
+    pass
